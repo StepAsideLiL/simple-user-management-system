@@ -2,7 +2,7 @@
 
 ### [Live Link](https://simple-user-management-system.netlify.app/)
 
-#### [Client Side](https://github.com/StepAsideLiL/simple-user-management-system) | [Server Side](https://github.com/StepAsideLiL/simple-user-management-system-server)
+#### [Client Side Repo](https://github.com/StepAsideLiL/simple-user-management-system) | [Server Side Repo](https://github.com/StepAsideLiL/simple-user-management-system-server)
 
 ## Run The Website on Local Machine
 
