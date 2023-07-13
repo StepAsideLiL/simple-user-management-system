@@ -1,7 +1,26 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import axiosApiInstance from "../utils/axiosApiInstance";
+import { useDispatch } from "react-redux";
+import { fetchUsers } from "../rtk/features/users/usersSlice";
 
 const UsersTableOnHomePage = ({ users }) => {
+  const { apiInstance } = axiosApiInstance();
+
+  const dispatch = useDispatch();
+
+  const handleDelete = (userId) => {
+    apiInstance
+      .delete(`/users/${userId}`)
+      .then((res) => {
+        console.log(res.data);
+        dispatch(fetchUsers());
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <table className="w-full border">
@@ -33,7 +52,10 @@ const UsersTableOnHomePage = ({ users }) => {
                     Edit
                   </Link>
 
-                  <button className="px-4 py-2 font-bold text-red-700 border rounded hover:text-white hover:bg-red-700">
+                  <button
+                    className="px-4 py-2 font-bold text-red-700 border rounded hover:text-white hover:bg-red-700"
+                    onClick={() => handleDelete(user._id)}
+                  >
                     Delete
                   </button>
                 </div>
